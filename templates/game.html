@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+
+<html lang="id">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>ZERO66 - Game</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="top-bar">
+
+        <div>
+            👤 {{ username }}
+        </div>
+
+        <div>
+            🪙 <span id="coins">{{ coins }}</span>
+        </div>
+
+    </div>
+
+
+    <div class="logo">
+        ZERO66
+    </div>
+
+    <div class="subtitle">
+        SLOT GAME SIMULATOR
+    </div>
+
+
+    <div class="machine">
+
+        <div class="reels">
+
+            <div
+                class="reel"
+                id="reel1"
+            >
+                🍒
+            </div>
+
+            <div
+                class="reel"
+                id="reel2"
+            >
+                ⭐
+            </div>
+
+            <div
+                class="reel"
+                id="reel3"
+            >
+                💎
+            </div>
+
+        </div>
+
+
+        <button
+            id="spinButton"
+            class="spin-button"
+            onclick="spin()"
+        >
+            SPIN
+        </button>
+
+
+        <div
+            id="message"
+            class="message"
+        >
+            Tekan SPIN untuk mulai
+        </div>
+
+
+        <div class="stats">
+
+            <div class="stat">
+
+                <div class="stat-title">
+                    SCORE
+                </div>
+
+                <div
+                    id="score"
+                    class="stat-number"
+                >
+                    {{ score }}
+                </div>
+
+            </div>
+
+
+            <div class="stat">
+
+                <div class="stat-title">
+                    KOIN
+                </div>
+
+                <div
+                    id="coins-display"
+                    class="stat-number"
+                >
+                    {{ coins }}
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="menu">
+
+        <a href="{{ url_for('leaderboard') }}">
+            🏆 LEADERBOARD
+        </a>
+
+        <a href="{{ url_for('logout') }}">
+            LOGOUT
+        </a>
+
+    </div>
+
+
+    <div class="info">
+
+        Setiap SPIN menggunakan
+        <strong>10 koin virtual</strong>.
+
+    </div>
+
+</div>
+
+
+<script
+    src="{{ url_for('static', filename='js/game.js') }}">
+</script>
+
+</body>
+
+</html>

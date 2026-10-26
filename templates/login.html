@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>ZERO66 - Login</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/login.css') }}"
+    >
+
+</head>
+
+<body>
+
+<div class="login-container">
+
+    <div class="logo">
+        ZERO66
+    </div>
+
+    <div class="subtitle">
+        SLOT GAME SIMULATOR
+    </div>
+
+    <div class="login-card">
+
+        <h2>WELCOME</h2>
+
+        <p>
+            Masukkan username untuk mulai bermain.
+        </p>
+
+        <form
+            action="{{ url_for('login_process') }}"
+            method="POST"
+        >
+
+            <input
+                type="text"
+                name="username"
+                placeholder="Masukkan username"
+                maxlength="20"
+                required
+            >
+
+            <button type="submit">
+                MASUK
+            </button>
+
+        </form>
+
+        <div class="starting-coins">
+            🪙 1.000 Koin Virtual
+        </div>
+
+    </div>
+
+    <div class="footer">
+        ZERO66 • Virtual Game Simulator
+    </div>
+
+</div>
+
+</body>
+
+</html>

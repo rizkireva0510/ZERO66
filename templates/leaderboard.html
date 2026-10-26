@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+
+<html lang="id">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>ZERO66 - Leaderboard</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/leaderboard.css') }}"
+    >
+
+</head>
+
+<body>
+
+<div class="leaderboard">
+
+    <div class="logo">
+        ZERO66
+    </div>
+
+    <h2>
+        🏆 LEADERBOARD
+    </h2>
+
+    <p class="subtitle">
+        TOP 10 PLAYERS
+    </p>
+
+
+    <div class="table">
+
+        {% if users %}
+
+            {% for user in users %}
+
+            <div class="player">
+
+                <div class="rank">
+
+                    {% if loop.index == 1 %}
+
+                        🥇
+
+                    {% elif loop.index == 2 %}
+
+                        🥈
+
+                    {% elif loop.index == 3 %}
+
+                        🥉
+
+                    {% else %}
+
+                        #{{ loop.index }}
+
+                    {% endif %}
+
+                </div>
+
+
+                <div class="username">
+
+                    {{ user.username }}
+
+                </div>
+
+
+                <div class="player-score">
+
+                    {{ user.score }}
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        {% else %}
+
+            <p>
+                Belum ada pemain.
+            </p>
+
+        {% endif %}
+
+    </div>
+
+
+    <a
+        class="back"
+        href="{{ url_for('game') }}"
+    >
+        ← KEMBALI KE GAME
+    </a>
+
+</div>
+
+</body>
+
+</html>
