@@ -9,7 +9,10 @@ app = Flask(__name__)
 # KONFIGURASI
 # =========================
 
-app.secret_key = "ZERO66_SECRET_KEY"
+app.secret_key = os.environ.get(
+    "SECRET_KEY",
+    "dev-secret-key"
+)
 
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 
